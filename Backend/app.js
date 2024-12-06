@@ -10,6 +10,17 @@ require('dotenv').config();
 
 const app = express();
 
+const cors = require('cors');
+
+// Allow specific origins
+app.use(cors({
+  ORIGIN: ['*'],
+  methods: ['GET', 'POST', 'DELETE', 'PUT'],
+  AllowedOrigin: ['*'],
+ 
+}));
+
+
 // Middleware
 app.use(bodyParser.json());
 const PORT = process.env.PORT ;

@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Sales = require('../Models/Sales.model');
+const Customer = require('../Models/Customers.model');
+const Inventory = require('../Models/Inventory.model');
 const router = express.Router();
 
 
@@ -44,7 +46,9 @@ router.post('/', async (req, res) => {
 // Get All Sales
 router.get('/', async (req, res) => {
     try {
-        const sales = await Sales.find().populate('customerId').populate('items.itemId');
+        const sales = await Sales.find()
+            /* .populate('customerId')
+            .populate('items.itemId');  */
         res.status(200).json(sales);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching sales', error: error.message });

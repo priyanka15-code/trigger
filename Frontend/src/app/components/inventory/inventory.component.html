@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Inventory</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="customer-content">
+  <div class="scroll-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="4" *ngFor="let inventory of inventory">
+          <ion-card class="customer-card">
+            <ion-card-header>
+              <ion-avatar>
+                <img
+                  [src]="inventory.avatar || 'assets/img.jpg'"
+                  alt="Customer Avatar"
+                />
+              </ion-avatar>
+              <ion-card-title class="customer-name">{{
+                inventory.name
+              }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>material: {{ inventory.material }}</p>
+              <p>stock: {{ inventory.stock }}</p>
+              <p>price: {{ inventory.price }}</p>
+              <p>category: {{ inventory.category }}</p>
+              <p>
+                carat: <strong>{{ inventory.carat }}</strong>
+              </p>
+            </ion-card-content>
+            <div class="icon-container">
+              <ion-icon name="eye" class="action-icon" color="primary">
+              </ion-icon>
+              <ion-icon name="create" class="action-icon" color="secondary">
+              </ion-icon>
+              <ion-icon
+                name="trash"
+                class="action-icon"
+                color="danger"
+                (click)="deleteInventory(inventory._id)"
+              >
+              </ion-icon>
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

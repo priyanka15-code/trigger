@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>sales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="customer-content">
+  <div class="scroll-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="4" *ngFor="let sales of sales">
+          <ion-card class="customer-card">
+            <ion-card-header>
+              <ion-avatar>
+                <img
+                  [src]="sales.avatar || 'assets/img.jpg'"
+                  alt="Customer Avatar"
+                />
+              </ion-avatar>
+              <ion-card-title class="customer-name">{{
+                sales.customerId
+              }}</ion-card-title>
+            </ion-card-header>
+            
+            <div class="icon-container">
+              <ion-icon name="eye" class="action-icon" color="primary">
+              </ion-icon>
+              <ion-icon name="create" class="action-icon" color="secondary">
+              </ion-icon>
+              <ion-icon
+                name="trash"
+                class="action-icon"
+                color="danger"
+                (click)="deletesales(sales._id)"
+              >
+              </ion-icon>
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

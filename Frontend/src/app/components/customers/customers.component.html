@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Customers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="customer-content">
+  <div class="scroll-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="4" *ngFor="let customer of customers">
+          <ion-card class="customer-card">
+            <ion-card-header>
+              <ion-avatar>
+                <img
+                  [src]="customer.avatar || 'assets/logo.jpg'"
+                  alt="Customer Avatar"
+                />
+              </ion-avatar>
+              <ion-card-title class="customer-name">{{
+                customer.name
+              }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>Email: {{ customer.email }}</p>
+              <p>
+                Loyalty Points: <strong>{{ customer.loyaltyPoints }}</strong>
+              </p>
+            </ion-card-content>
+            <!-- Icons Container (show on hover) -->
+            <div class="icon-container">
+              <ion-icon name="eye" class="action-icon" color="primary">
+              </ion-icon>
+              <ion-icon
+                name="create"
+                class="action-icon"
+                color="secondary"
+                (click)="updateCustomer(customer._id, customer)"
+              >
+              </ion-icon>
+              <ion-icon
+                name="trash"
+                class="action-icon"
+                color="danger"
+                (click)="deleteCustomer(customer._id)"
+              >
+              </ion-icon>
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

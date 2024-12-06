@@ -1,0 +1,84 @@
+.customer-content {
+    --ion-background-color: #f8f9fa;
+    padding: 10px;
+  }
+  
+  .scroll-container {
+    height: 600px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  .customer-card {
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+  }
+  
+  
+  
+  .customer-card ion-avatar {
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+  }
+  
+  .customer-card ion-avatar img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .customer-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .customer-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 5px 0;
+  }
+  
+  /* Icon Container for Vertical Layout */
+  .icon-container {
+    display: flex;
+    flex-direction: column; /* Stack icons vertically */
+    justify-content: center;
+    position: absolute;
+    right: 10px; /* Align to the right side */
+    top: 50%; /* Align vertically in the center */
+    transform: translateY(-50%); /* Center vertically */
+    visibility: hidden; /* Initially hide the icons */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Smooth fade-in effect */
+  }
+  
+  .customer-card:hover .icon-container {
+    visibility: visible; /* Show the icons when the card is hovered */
+    opacity: 1; /* Fade in the icons */
+  }
+  
+  .action-icon {
+    font-size: 24px; /* Icon size */
+    margin-bottom: 10px; /* Space between icons */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out; /* Smooth effect for scaling on hover */
+  }
+  
+  .action-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge the icons on hover */
+  }
+  
