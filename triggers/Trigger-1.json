@@ -1,0 +1,16 @@
+{
+    "name": "Trigger-1",
+    "type": "SCHEDULED",
+    "disabled": false,
+    "config": {
+        "schedule": "*/1 * * * *",
+        "skip_catchup_events": false
+    },
+    "event_processors": {
+        "FUNCTION": {
+            "config": {
+                "function_name": "Atlas_Triggers_Trigger_2_1733923398"
+            }
+        }
+    }
+}

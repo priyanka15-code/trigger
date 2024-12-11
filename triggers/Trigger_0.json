@@ -1,0 +1,44 @@
+{
+    "name": "Trigger_0",
+    "type": "DATABASE",
+    "disabled": false,
+    "config": {
+        "collection": "posts",
+        "database": "indexsearch",
+        "full_document": true,
+        "full_document_before_change": true,
+        "match": {
+            "department": "engineering",
+            "documentKey.userName": "alice123"
+        },
+        "maximum_throughput": false,
+        "operation_types": [
+            "INSERT",
+            "UPDATE",
+            "DELETE",
+            "REPLACE"
+        ],
+        "project": {
+            "documentKey._id": {
+                "$numberInt": "1"
+            },
+            "operationType": {
+                "$numberInt": "1"
+            },
+            "wallTime": {
+                "$numberInt": "1"
+            }
+        },
+        "service_name": "Cluster0",
+        "skip_catchup_events": true,
+        "tolerate_resume_errors": true,
+        "unordered": false
+    },
+    "event_processors": {
+        "FUNCTION": {
+            "config": {
+                "function_name": "Atlas_Triggers_Trigger_0_1733808893"
+            }
+        }
+    }
+}
