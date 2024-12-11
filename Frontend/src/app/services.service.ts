@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { WebSocketSubject } from 'rxjs/webSocket';
 
 
 @Injectable({
@@ -9,9 +10,14 @@ import { Observable } from 'rxjs';
 export class ServicesService {
 
   private apiUrl = 'http://localhost:3000/api';
+  private socket$ = new WebSocketSubject('ws://localhost:3001');
 
   constructor(private http: HttpClient) { }
 
+
+  getInventoryUpdates() {
+    return this.socket$; 
+}
  // customer api
   getCustomers(): Observable<any>{
     return this.http.get(`${this.apiUrl}/customers`)

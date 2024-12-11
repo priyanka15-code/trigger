@@ -12,10 +12,9 @@ export class SalesComponent implements OnInit {
   constructor(private service: ServicesService) {}
 
   ngOnInit(): void {
-    this.loadSales(); // Call the corrected method
+    this.loadSales(); 
   }
 
-  // Corrected method name and assignment
   loadSales(): void {
     this.service.getsales().subscribe(
       (data) => {

@@ -2,5 +2,36 @@
   "name": "ionic-app",
   "app_id": "",
   "type": "angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {},
+    "capacitor": {},
+    "angular": {
+      "ngModule": "AppModule"
+    }
+  },
+  "proxies": [
+    {
+      "context": "/api",
+      "target": "http://localhost:3000",
+      "secure": false,
+      "logLevel": "debug"
+    }
+  ],
+  "capacitor": {
+    "appId": "com.example.ionicapp",
+    "appName": "IonicApp",
+    "webDir": "www",
+    "bundledWebRuntime": false
+  },
+  "cordova-plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0,
+      "launchAutoHide": true,
+      "backgroundColor": "#ffffff"
+    },
+    "StatusBar": {
+      "style": "default",
+      "backgroundColor": "#ffffff"
+    }
+  }
 }

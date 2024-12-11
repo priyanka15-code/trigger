@@ -3,6 +3,9 @@ const router = express.Router();
 const mongoose = require('mongoose'); 
 const Customer = require('../Models/Customers.model');
 
+
+
+
 // create customers
 router.post('/', async (req, res) => {
     try {
@@ -11,10 +14,8 @@ router.post('/', async (req, res) => {
         ? purchaseHistory.filter(id => mongoose.Types.ObjectId.isValid(id))
         : mongoose.Types.ObjectId.isValid(purchaseHistory) ? [purchaseHistory] : [];
 
-        // Create new customer
         const customer = new Customer({ name, email, loyaltyPoints, purchaseHistory: validPurchaseHistory });
         
-        // Save customer to database
         await customer.save();
         res.status(201).json(customer);
     } catch (err) {

@@ -1,0 +1,17 @@
+<div class="dashboard">
+  <header class="navbar">
+    <h1>Welcome</h1>
+  </header>
+  <div class="dashboard-content">
+    <nav class="sidebar">
+      <ul>
+        <li><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
+        <li><a routerLink="/inventory" routerLinkActive="active">Inventory</a></li>
+        <li><a routerLink="/sales" routerLinkActive="active">Sales</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

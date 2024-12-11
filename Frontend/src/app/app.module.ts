@@ -8,6 +8,8 @@ import { CustomersComponent } from './components/customers/customers.component';
 import { HttpClientModule } from '@angular/common/http';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { SalesComponent } from './components/sales/sales.component';
+import { DashboadComponent } from './components/dashboad/dashboad.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,13 +18,18 @@ import { SalesComponent } from './components/sales/sales.component';
     AppComponent,
     CustomersComponent,
     InventoryComponent,
-    SalesComponent
+    SalesComponent,
+    DashboadComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    IonicModule.forRoot({})
+    IonicModule.forRoot({}),
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

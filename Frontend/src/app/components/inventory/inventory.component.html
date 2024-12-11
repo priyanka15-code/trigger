@@ -1,9 +1,15 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-title>Inventory</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+<div *ngIf="toastMessages.length > 0">
+  <div *ngFor="let toast of toastMessages" class="toast-message">
+    {{ toast.message }}
+  </div>
+</div>
 <ion-content class="customer-content">
   <div class="scroll-container">
     <ion-grid>
@@ -49,3 +55,9 @@
     </ion-grid>
   </div>
 </ion-content>
+
+
+
+  
+
+

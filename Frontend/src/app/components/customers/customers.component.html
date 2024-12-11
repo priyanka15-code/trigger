@@ -1,11 +1,35 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Customers</ion-title>
+<ion-header collapse="fade">
+  <ion-toolbar color="light" >
+    <ion-title >Customers</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="customer-content">
   <div class="scroll-container">
+    <!-- Customer Form -->
+    <div *ngIf="editingCustomer" class="modal">
+      <form (ngSubmit)="submitCustomerForm()">
+        <ion-item>
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input [(ngModel)]="editingCustomer.name" name="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input [(ngModel)]="editingCustomer.email" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Loyalty Points</ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="editingCustomer.loyaltyPoints"
+            name="loyaltyPoints"
+          ></ion-input>
+        </ion-item>
+        <ion-button expand="full" type="submit">Save Changes</ion-button>
+      </form>
+    </div>
+
+    <!-- Customer Cards -->
     <ion-grid>
       <ion-row>
         <ion-col size="12" size-md="4" *ngFor="let customer of customers">
@@ -27,24 +51,20 @@
                 Loyalty Points: <strong>{{ customer.loyaltyPoints }}</strong>
               </p>
             </ion-card-content>
-            <!-- Icons Container (show on hover) -->
             <div class="icon-container">
-              <ion-icon name="eye" class="action-icon" color="primary">
-              </ion-icon>
+              <ion-icon name="eye" class="action-icon" color="primary"></ion-icon>
               <ion-icon
                 name="create"
                 class="action-icon"
                 color="secondary"
-                (click)="updateCustomer(customer._id, customer)"
-              >
-              </ion-icon>
+                (click)="startEditCustomer(customer)"
+              ></ion-icon>
               <ion-icon
                 name="trash"
                 class="action-icon"
                 color="danger"
                 (click)="deleteCustomer(customer._id)"
-              >
-              </ion-icon>
+              ></ion-icon>
             </div>
           </ion-card>
         </ion-col>
